@@ -1,5 +1,6 @@
 projects/00
 projects/01/*.cmp
+projects/01/*.out
 projects/01/*.tst
 projects/02
 projects/03
