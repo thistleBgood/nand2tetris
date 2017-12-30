@@ -16,11 +16,11 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
+    Mux16 (sel=reset, a=loadOut, out=resetOut);
+    Mux16 (sel=load, a=incOut, b=in, out=loadOut);
+    Mux16 (sel=inc, a=lastOut0, b=lastOut1, out=incOut);
     Inc16 (in=lastOut0, out=lastOut1);
-    Mux16 (a=lastOut0, b=lastOut1, sel=inc, out=incOut);
-    Mux16 (a=incOut, b=in, sel=load, out=loadOut);
-    Mux16 (a=loadOut, sel=reset, out=resetOut);
-    Or8Way (in[0]=load, in[1]=inc, in[2]=reset, out=update);
 
-    Register (in=resetOut, load=update, out=lastOut0, out=out);
+    Or8Way (in[0]=load, in[1]=inc, in[2]=reset, out=updateOut);
+    Register (in=resetOut, load=updateOut, out=lastOut0, out=out);
 }
