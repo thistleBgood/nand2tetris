@@ -24,5 +24,5 @@ CHIP RAM512 {
     RAM64 (in=in, load=load5, address=address[0..5], out=out5);
     RAM64 (in=in, load=load6, address=address[0..5], out=out6);
     RAM64 (in=in, load=load7, address=address[0..5], out=out7);
-    Mux8Way16 (a=out0, b=out1, c=out2, d=out3, e=out4, f=out5, g=out6, h=out7, sel=address[6..8],  out=out);
+    Mux8Way16 (a=out0, b=out1, c=out2, d=out3, e=out4, f=out5, g=out6, h=out7, sel=address[6..8], out=out);
 }
